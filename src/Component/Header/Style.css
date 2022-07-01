@@ -1,0 +1,10 @@
+.containers{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.cards{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width:700px;
+}

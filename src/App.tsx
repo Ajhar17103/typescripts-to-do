@@ -1,7 +1,19 @@
-import React from 'react'
+import React,{FC, useState} from 'react'
+import CreateTodo from './Component/Header/CreateTodo';
+import TodoList from './Component/Todos/TodoList';
 
-export default function App() {
+const  App:FC=()=> {
+
+const [form, setForm] = useState([{task:"", time:""  }]);
+
+const handleFormSubmit=(event: ChangeEvent<HTMLInputElement>):void=>{
+    
+} 
   return (
-    <div>App</div>
+   <>
+   <CreateTodo formSubmit={handleFormSubmit} />
+   <TodoList />
+   </>
   )
 }
+export default App;
