@@ -2,16 +2,29 @@ import React,{FC, useState} from 'react'
 import CreateTodo from './Component/Header/CreateTodo';
 import TodoList from './Component/Todos/TodoList';
 
+interface Form{
+  task:string,
+  time:number | string
+}
+
 const  App:FC=()=> {
 
-const [form, setForm] = useState([{task:"", time:""  }]);
+const [form, setForm] = useState([{task:"", time:""}]);
 
-const handleFormSubmit=(event: ChangeEvent<HTMLInputElement>):void=>{
-    
+const onChangeHandler =(event: React.ChangeEvent<HTMLInputElement>)=>{
+  
+  setForm({...form, [event.target.name]:event.target.value})
+}
+
+const handleFormSubmit=(event: React.ChangeEvent<HTMLInputElement>)=>{
+  event.preventDefault()  
+
+ 
+  
 } 
   return (
    <>
-   <CreateTodo formSubmit={handleFormSubmit} />
+   <CreateTodo handleFormSubmit={handleFormSubmit}  onChangeHandler={onChangeHandler}/>
    <TodoList />
    </>
   )

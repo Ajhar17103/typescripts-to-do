@@ -2,7 +2,15 @@ import React, { FC } from "react";
 import { Container, Card, Button, Form, Row, Col } from "react-bootstrap";
 import "./Style.css";
 
-const CreateTodo: FC = (props:any) => {
+
+interface Props {
+  handleFormSubmit:any
+  onChangeHandler:any 
+ 
+}
+
+const CreateTodo= ({handleFormSubmit,onChangeHandler}:Props) => {
+  
   return (
     <>
       <Container fluid className="containers">
@@ -13,17 +21,17 @@ const CreateTodo: FC = (props:any) => {
               <hr />
             </Card.Title>
 
-            <Form onSubmit={props.formSubmit}>
+            <Form onSubmit={handleFormSubmit} >
               <Row>
                 <Col>
-                  <Form.Control type='text' name='task' placeholder="Enter your Task" />
+                  <Form.Control type='text' name='task' onChange={onChangeHandler} placeholder="Enter your Task" />
                 </Col>
                 <Col>
                   
-                  <Form.Control type='number' name='time' placeholder="Enter Time " />
+                  <Form.Control type='number' name='time' onChange={onChangeHandler}  placeholder="Enter Time " />
                 </Col>
                 <Col>
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="submit"  >
                     Submit
                   </Button>
                 </Col>
@@ -31,6 +39,7 @@ const CreateTodo: FC = (props:any) => {
             </Form>
           </Card.Body>
         </Card>
+    
       </Container>
     </>
   );
