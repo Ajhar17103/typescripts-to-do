@@ -18,7 +18,7 @@ const onChangeHandler =(event: React.ChangeEvent<HTMLInputElement>)=>{
 
 const handleFormSubmit=(event: React.ChangeEvent<HTMLInputElement>)=>{
   event.preventDefault()  
-
+  console.log(form)
  
   
 } 
