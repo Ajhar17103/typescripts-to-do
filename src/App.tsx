@@ -4,13 +4,15 @@ import TodoList from './Component/Todos/TodoList';
 
 interface Form{
   task:string,
-  time:number | string
+  time:number | string,
+   
 }
 
 const  App:FC=()=> {
 
-const [form, setForm] = useState([{task:"", time:""}]);
-
+const [form, setForm] = useState({task:"", time:""});
+const [todo, setTodo] = useState <Form []> ([])
+ 
 const onChangeHandler =(event: React.ChangeEvent<HTMLInputElement>)=>{
   
   setForm({...form, [event.target.name]:event.target.value})
@@ -18,10 +20,15 @@ const onChangeHandler =(event: React.ChangeEvent<HTMLInputElement>)=>{
 
 const handleFormSubmit=(event: React.ChangeEvent<HTMLInputElement>)=>{
   event.preventDefault()  
-  console.log(form)
  
-  
+  // event.target.reset()
+  setTodo([...todo, form])
+ 
+ 
 } 
+console.log(todo)
+
+
   return (
    <>
    <CreateTodo handleFormSubmit={handleFormSubmit}  onChangeHandler={onChangeHandler}/>
