@@ -6,10 +6,11 @@ import "./Style.css";
 interface Props {
   handleFormSubmit:any
   onChangeHandler:any 
+  form:any
  
 }
 
-const CreateTodo= ({handleFormSubmit,onChangeHandler}:Props) => {
+const CreateTodo= ({handleFormSubmit,onChangeHandler,form}:Props) => {
   
   return (
     <>
@@ -24,11 +25,11 @@ const CreateTodo= ({handleFormSubmit,onChangeHandler}:Props) => {
             <Form onSubmit={handleFormSubmit} >
               <Row>
                 <Col>
-                  <Form.Control type='text' name='task' onChange={onChangeHandler} placeholder="Enter your Task" />
+                  <Form.Control type='text' name='task' value={form.task}  onChange={onChangeHandler} placeholder="Enter your Task" required />
                 </Col>
                 <Col>
                   
-                  <Form.Control type='number' name='time' onChange={onChangeHandler}  placeholder="Enter Time " />
+                  <Form.Control type='number' name='time' value={form.time}  onChange={onChangeHandler}  placeholder="Enter Time " required />
                 </Col>
                 <Col>
                   <Button variant="primary" type="submit"  >
