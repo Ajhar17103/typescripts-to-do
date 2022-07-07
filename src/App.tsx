@@ -1,7 +1,7 @@
 import React,{FC, useState} from 'react'
 import CreateTodo from './Component/Header/CreateTodo';
 import TodoList from './Component/Todos/TodoList';
-
+import swal from 'sweetalert'
 interface Form{
   task:string,
   time:number | string,
@@ -23,7 +23,7 @@ const handleFormSubmit=(event: React.ChangeEvent<HTMLInputElement>)=>{
   event.preventDefault()  
  
   setTodo([...todo, form])
-
+  swal("Task Added!", " ", "success");
  
 }
 
@@ -31,7 +31,7 @@ const handleFormSubmit=(event: React.ChangeEvent<HTMLInputElement>)=>{
   return (
    <>
    <CreateTodo form={form}  handleFormSubmit={handleFormSubmit}  onChangeHandler={onChangeHandler}/>
-   <TodoList />
+   <TodoList todo={todo} />
    </>
   )
 }

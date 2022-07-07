@@ -1,17 +1,13 @@
 import React, { FC } from "react";
 import { Container, Card, Button, Form, Row, Col } from "react-bootstrap";
-import "./Style.css";
+import "../../App.css";
+import Props from '../Interface/Interface'
 
 
-interface Props {
-  handleFormSubmit:any
-  onChangeHandler:any 
-  form:any
- 
-}
 
-const CreateTodo= ({handleFormSubmit,onChangeHandler,form}:Props) => {
-  
+
+const CreateTodo = ({ handleFormSubmit, onChangeHandler, form }: Props) => {
+
   return (
     <>
       <Container fluid className="containers">
@@ -25,12 +21,14 @@ const CreateTodo= ({handleFormSubmit,onChangeHandler,form}:Props) => {
             <Form onSubmit={handleFormSubmit} >
               <Row>
                 <Col>
-                  <Form.Control type='text' name='task' value={form.task}  onChange={onChangeHandler} placeholder="Enter your Task" required />
+                  <Form.Control type='text' name='task' value={form.task} onChange={onChangeHandler} placeholder="Enter your Task" required />
                 </Col>
+
                 <Col>
-                  
-                  <Form.Control type='number' name='time' value={form.time}  onChange={onChangeHandler}  placeholder="Enter Time " required />
+
+                  <Form.Control type='number' name='time' value={form.time} onChange={onChangeHandler} placeholder="Enter Time " required />
                 </Col>
+
                 <Col>
                   <Button variant="primary" type="submit"  >
                     Submit
@@ -40,7 +38,7 @@ const CreateTodo= ({handleFormSubmit,onChangeHandler,form}:Props) => {
             </Form>
           </Card.Body>
         </Card>
-    
+
       </Container>
     </>
   );
